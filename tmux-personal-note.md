@@ -34,10 +34,22 @@
 	
 **To destroy a pane**
 	
-	exit
+	$exit
 	
 **Resizing the panes**
 
 	ctrl+b   :
-	:resize-pane   -R   20
+	:resize-pane   -R   20     
 	:resize-pane   -D  20
+	
+[resizing-details](https://michaelsoolee.com/resize-tmux-panes/) 
+
+**Killing a particular session**
+
+	$tmux kill-session -t <mysession>
+	
+**Killing all sessions at once**
+
+	$tmux  kill-server      
+	or
+	$tmux kill-session -a
