@@ -5,7 +5,7 @@
 **Creating New session**
 
 
-	$ tmux new -s  <mysession> 
+	$tmux new -s  <mysession> 
 
 
 **Checking the list of sessions**
@@ -39,5 +39,5 @@
 **Resizing the panes**
 
 	ctrl+b   :
-	resize-pane   -R   20
-	resize-pane   -D  20
+	:resize-pane   -R   20
+	:resize-pane   -D  20
