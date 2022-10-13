@@ -1,12 +1,14 @@
-Using TMUX utility 
+<h2>Using TMUX utility </h2>
 
-**Creating New session **
+
+
+**Creating New session**
 
 
 	$ tmux new -s  <mysession> 
 
 
-**Checking the list of sessions **
+**Checking the list of sessions**
 
 	$tmux ls 
 
@@ -14,7 +16,7 @@ Using TMUX utility
 	
 	ctrl+b    D 
 	
-**How to re-attach to a session **
+**How to re-attach to a session**
 
 	$tmux attach -t <mysession>
 	
@@ -22,19 +24,19 @@ Using TMUX utility
 
 	ctrl+b   %
 
-**To switch between panes  (keyboard shortcut) **
+**To switch between panes  (keyboard shortcut)**
 
 	ctrl+b   ←     and       ctrl+b   →
 
-**Creating a pane in the bottom **
+**Creating a pane in the bottom**
 
 	ctrl+b  "
 	
-**To destroy a pane **
+**To destroy a pane**
 	
 	exit
 	
-**Resizing the panes **
+**Resizing the panes**
 
 	ctrl+b   :
 	resize-pane   -R   20
