@@ -1,3 +1,8 @@
+# Recursive factorial refers to a method of computing the factorial of a non-negative integer 
+# using recursion. The program will use stack or $sp register to PUSH and POP. Stack 
+# grows from High address to Low address. 
+        
+        
         .data 0x10000000
 input:  .asciiz "\nPlease Enter the number whose factorial is to be calculated: "
 output: .asciiz "\nThe Factorial of the Number is: "
@@ -19,7 +24,8 @@ main:
 
         # Move factorial result into temp $t0 
         
-        jal fact              # jal - jump and link (unconditional jump) 
+        jal fact              # jal  Jump and Link (unconditional jump) 
+        		       # address of next instruction is saved in $ra 
         add $t0, $v0, $zero 
 
 
@@ -44,16 +50,16 @@ fact:
         sw $a0, 0($sp)        # → value of $a0 is stored in stack TOP, PUSH to stack
 
         slti $t0, $a0, 1      # $t0=1, if $a0 <= 1. most of the times $t0 = 0 
-        beq $t0, $zero, L1    # This willl occur (n-1) times
+        beq $t0, $zero, L1    # This will occur (n-1) times
 
         # after jumping (n-1) times to L1, only for once the following will be executed
         addi $v0, $zero, 1 
 
-        lw $a0, 0($sp)        # ← POP the value of $a0 from the stack 
-        addi $sp, $sp, 4      # decrement the stack pointer, stack shrink  
-                              # after POP stack shrinks
 
-        lw $ra, 0($sp)
+        # opposite effect of the first 4 instruction so fact
+        lw $a0, 0($sp)        # ← POP the value from the stack to $a0
+        addi $sp, $sp, 4      # decrement the stack pointer, stack shrink  
+        lw $ra, 0($sp)        # ← POP the value from the stack to $ra
         addi $sp, $sp, 4      # decrement the stack pointer, stack shrink  
 
 
@@ -65,10 +71,11 @@ fact:
 
 L1: 
         addi $a0, $a0, -1    #  (n - 1) operation
-        jal fact             # jal - jump and link (unconditional jump) 
+        jal fact             # jal  Jump and Link (unconditional jump)
+        		      # address of next instruction is saved in $ra 
 
 
-        lw $a0, 0($sp)       # ← POP the value to $a0 from the stack  
+        lw $a0, 0($sp)       # ← POP the value from the stack to $a0
         addi $sp, $sp, 4     # decrement the stack pointer, stack shrink  
 
         lw $ra, 0($sp)       # ← POP the value from the stack to $ra 
