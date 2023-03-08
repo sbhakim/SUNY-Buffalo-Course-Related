@@ -60,7 +60,7 @@ class RSAEncryptor:
 
 if __name__ == '__main__':
     # Read file contents
-    with open('short_file.txt', 'rb') as f:
+    with open('file_1KB.txt', 'rb') as f:
         message = f.read()
         
     encryptor = RSAEncryptor()
